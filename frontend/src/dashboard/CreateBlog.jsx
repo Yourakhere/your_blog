@@ -32,7 +32,7 @@ function CreateBlog() {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:4001/api/blogs/create",
+        "https://your-blog-alpha.vercel.app/api/blogs/create",
         formData,
         {
           withCredentials: true,
