@@ -14,7 +14,7 @@ function MyBlogs() {
           toast.error("You must be logged in to view your blogs.");
           return;
         }
-        const { data } = await axios.get("http://localhost:4001/api/blogs/my-blog", {
+        const { data } = await axios.get("https://your-blog-alpha.vercel.app/api/blogs/my-blog", {
           headers: {
             "Authorization": `Bearer ${token}`,
           },
