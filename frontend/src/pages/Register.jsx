@@ -41,7 +41,7 @@ function Register() {
     formData.append("photo", photo);
     try {
       const { data } = await axios.post(
-        "http://localhost:4001/api/users/register",
+        "https://your-blog-alpha.vercel.app/api/users/register",
         formData,
         {
           withCredentials: true,
