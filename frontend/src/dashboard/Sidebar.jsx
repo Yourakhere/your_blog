@@ -23,7 +23,7 @@ function Sidebar({ setComponent }) {
     e.preventDefault();
     try {
       const { data } = await axios.get(
-        "http://localhost:4001/api/users/logout",
+        "https://your-blog-alpha.vercel.app/api/users/logout",
         { withCredentials: true }
       );
       toast.success(data.message);
