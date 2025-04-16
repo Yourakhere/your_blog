@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
         const token = localStorage.getItem("jwt"); // Retrieve token
         if (token) {
           const { data } = await axios.get(
-            "http://localhost:4001/api/users/my-profile",
+            "https://your-blog-alpha.vercel.app/api/users/my-profile",
             {
               withCredentials: true,
               headers: {
