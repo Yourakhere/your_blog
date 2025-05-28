@@ -21,10 +21,8 @@ function App() {
     location.pathname
   );
   const { blogs, isAuthenticated } = useAuth();
-  let token = localStorage.getItem("jwt"); // Retrieve the token directly from the localStorage to maininting the routes protect (Go to login.jsx)
-  console.log(blogs);
-  console.log(isAuthenticated); // it is not using because every page refresh it was redirected to /login
-
+  let token = localStorage.getItem("jwt");  
+  console.log(isAuthenticated);  
   return (
     <div>
       {!hideNavbarFooter && <Navbar />}
@@ -41,14 +39,11 @@ function App() {
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/dashboard" element={<Dashboard />} />
-
-        {/* Single page route */}
+ 
         <Route exact path="/blog/:id" element={<Detail />} />
-
-        {/* Update page route */}
+ 
         <Route exact path="/blog/update/:id" element={<UpdateBlog />} />
-
-        {/* Universal route */}
+ 
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Toaster />

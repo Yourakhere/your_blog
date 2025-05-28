@@ -10,12 +10,10 @@ import cors from "cors";
 
 const app = express();
 dotenv.config();
-
-// Set port and MongoDB URI
+ 
 const port = process.env.PORT || 5000;
 const MONGO_URL = process.env.MONGO_URI;
-
-// Middleware setup
+ 
 app.use(express.json());
 app.use(cookieParser());
 app.use(
@@ -32,8 +30,7 @@ app.use(
     tempFileDir: "/tmp/",
   })
 );
-
-// MongoDB connection
+ 
 mongoose
   .connect(MONGO_URL)
   .then(() => console.log("Connected to MongoDB"))
@@ -41,19 +38,16 @@ mongoose
     console.error("MongoDB connection error:", error);
     process.exit(1);
   });
-
-// Define routes
+ 
 app.use("/api/users", userRoute);
 app.use("/api/blogs", blogRoute);
-
-// Cloudinary setup
+ 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
   api_key: process.env.CLOUD_API_KEY,
   api_secret: process.env.CLOUD_SECRET_KEY,
 });
-
-// Start the server
+ 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

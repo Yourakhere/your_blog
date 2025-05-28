@@ -9,16 +9,13 @@ import {
 import { isAuthenticated } from "../middleware/authUser.js";
 
 const router = express.Router();
-
-// Auth routes
+ 
 router.post("/register", register);
 router.post("/login", login);
 router.get("/logout", isAuthenticated, logout);
-
-// User profile
-router.get("/my-profile", isAuthenticated, getMyProfile);
-
-// Public access to admin list (if intentional)
+ 
+router.get("/my-profile",  getMyProfile);
+ 
 router.get("/admins", getAdmins);
 
 export default router;

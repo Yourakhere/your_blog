@@ -79,12 +79,6 @@ export const getSingleBlogs = async (req, res) => {
   res.status(200).json(blog);
 };
 
-export const getMyBlogs = async (req, res) => {
-  const createdBy = req.user._id;
-  const myBlogs = await Blog.find({ createdBy });
-  res.status(200).json(myBlogs);
-};
-
 export const updateBlog = async (req, res) => {
   const { id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -95,4 +89,12 @@ export const updateBlog = async (req, res) => {
     return res.status(404).json({ message: "Blog not found" });
   }
   res.status(200).json(updatedBlog);
+};
+export const getMyBlogs = async (req, res) => {
+  try { 
+    const blogs = await Blog.find({});
+    res.status(200).json(blogs);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to fetch blogs" });
+  }
 };

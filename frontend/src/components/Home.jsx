@@ -6,8 +6,7 @@ import Creator from "../Home/Creator";
 
 function Home() {
   return (
-    <div>
-      
+    <div className="pt-20"> {/* Add padding-top to clear fixed navbar height */}
       <Hero />
       <Trending />
       <Devotional />
